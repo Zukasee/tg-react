@@ -1,5 +1,6 @@
 import React from 'react';
 import shawarma from '../../fonts/41ba6326746d7aed14737ce4334cad79.jpg';
+import './ProductList.css';
 
 const ProductList = () => {
 
@@ -77,19 +78,21 @@ const ProductList = () => {
     ]
 
     return (
-        <div>
-            ProductList
+        <div className="container">
+            <h1 className='section'>ProductList</h1>
             {menu.map((section, index) => (
                 <div key={index}>
-                    <h1>{section.section}</h1>
-                    {section.items.map((item, itemIndex) => (
-                        <div key={itemIndex}>
-                            <h1>{item.name}</h1>
-                            <img src={item.img} alt={item.name}/>
-                            <h3>{item.weight}</h3>
-                            <h2>{item.coast}</h2>
-                        </div>
-                    ))}
+                    <h2 className='section'>{section.section}</h2>
+                    <div className="item-container">
+                        {section.items.map((item, itemIndex) => (
+                            <div key={itemIndex} className="item">
+                                <h3>{item.name}</h3>
+                                <img src={item.img} alt={item.name}/>
+                                <h4>{item.weight}</h4>
+                                <h3>{item.coast}</h3>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             ))}
         </div>
