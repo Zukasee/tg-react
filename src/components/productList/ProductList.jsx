@@ -98,7 +98,7 @@ const ProductList = () => {
         return () => {
             tg.offEvent('settingsButtonClicked', openForm)
         }
-    }, [])
+    }, [openForm])
 
     useEffect(() => {
         tg.MainButton.setParams({
