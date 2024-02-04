@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import pita from '../../fonts/pita.png';
 import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
