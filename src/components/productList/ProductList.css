@@ -20,8 +20,8 @@ body {
   }
   
   .item-container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 13px;
+    padding-left: 13px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -55,7 +55,7 @@ body {
   }
   
   .item h3 {
-    font-size: 17px;
+    font-size: 16,5px;
     color: var(--tg-theme-text-color);
   }
   
