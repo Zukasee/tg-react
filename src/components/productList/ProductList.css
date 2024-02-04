@@ -23,6 +23,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 0 -10px;
   }
   
   .item {
@@ -30,6 +31,7 @@ body {
     box-sizing: border-box;
     margin-bottom: 20px;
     text-align: center;
+    margin: 0 10px 20px;
   }
   
   .item img {

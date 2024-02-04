@@ -81,7 +81,6 @@ const ProductList = () => {
 
     return (
         <div className="container">
-            <h1 className='section'>ProductList</h1>
             {menu.map((section, index) => (
                 <div key={index}>
                     <h2 className='section'>{section.section}</h2>
