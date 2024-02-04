@@ -28,6 +28,7 @@ body {
     width: calc(33.33% - 20px); /* 3 items in a row with spacing */
     box-sizing: border-box;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .item img {
@@ -43,11 +44,12 @@ body {
   
   .item h4 {
     font-size: 14px;
-    color: #888;
+    color: var(--tg-theme-text-color);
+    text-align: center;
   }
   
   .item h3 {
-    font-size: 20px;
-    color: #333;
+    font-size: 16px;
+    color: #ff8c00;
   }
   
