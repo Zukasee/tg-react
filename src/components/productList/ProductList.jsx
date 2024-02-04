@@ -4,6 +4,7 @@ import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
 import './ProductList.css';
 import { useTelegram } from '../../hooks/useTelegram';
+import { useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
 
@@ -80,6 +81,7 @@ const ProductList = () => {
 
     ]
 
+    const navigate = useNavigate()
     const [price, setPrice] = useState(0)
     const {tg} = useTelegram()
 
@@ -89,9 +91,12 @@ const ProductList = () => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: `Купить ${price}`
-        })
-    }, [price])
+            text: `Заказать ${price}р`,
+            onClick: () => {
+                navigate('/form');
+            }
+        });
+    }, [price, tg.MainButton, navigate]);
 
     useEffect(() => {
         if(price === 0) {
@@ -119,7 +124,6 @@ const ProductList = () => {
                     </div>
                 </div>
             ))}
-        {price}
         </div>
     );
 }
