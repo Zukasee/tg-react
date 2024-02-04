@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import pita from '../../fonts/pita.png';
 import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
@@ -89,12 +89,20 @@ const ProductList = () => {
         setPrice(price + value)
     }
 
+    const openForm = useCallback(() => {
+        navigate('/form')
+    }, [])
+
+    useEffect(() => {
+        tg.onEvent('settingsButtonClicked', callback)
+        return () => {
+            tg.offEvent('settingsButtonClicked', callback)
+        }
+    }, [])
+
     useEffect(() => {
         tg.MainButton.setParams({
             text: `Заказать ${price}р`,
-            onClick: () => {
-                navigate('/form');
-            }
         });
     }, [price, tg.MainButton, navigate]);
 
