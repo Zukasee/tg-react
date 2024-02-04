@@ -89,7 +89,7 @@ const ProductList = () => {
                             <div key={itemIndex} className="item">
                                 <h3>{item.name}</h3>
                                 <img src={item.img} alt={item.name}/>
-                                <h4>{item.weight} * {item.coast}</h4>
+                                <h4>{item.coast}р * {item.weight}</h4>
                                 <button className='buttonAdd'>Добавить</button>
                             </div>
                         ))}
