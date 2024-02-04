@@ -69,7 +69,7 @@ const ProductList = () => {
                     coast: 4
                 },
                 {
-                    name: 'Двойной чизбургер',
+                    name: 'Чикенбургер',
                     img: burger,
                     weight: '350г',
                     coast: 6
