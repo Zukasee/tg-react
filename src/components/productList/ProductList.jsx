@@ -94,9 +94,9 @@ const ProductList = () => {
     }, [])
 
     useEffect(() => {
-        tg.onEvent('settingsButtonClicked', callback)
+        tg.onEvent('settingsButtonClicked', openForm)
         return () => {
-            tg.offEvent('settingsButtonClicked', callback)
+            tg.offEvent('settingsButtonClicked', openForm)
         }
     }, [])
 
