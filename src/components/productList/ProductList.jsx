@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import pita from '../../fonts/pita.png';
 import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
 import './ProductList.css';
+import { useTelegram } from '../../hooks/useTelegram';
 
 const ProductList = () => {
 
@@ -79,6 +80,28 @@ const ProductList = () => {
 
     ]
 
+    const [price, setPrice] = useState(0)
+    const {tg} = useTelegram()
+
+    const changePrice = (value) => {
+        setPrice(price + value)
+    }
+
+    useEffect(() => {
+        tg.MainButton.setParams({
+            text: `Купить ${price}`
+        })
+    }, [])
+
+    useEffect(() => {
+        if(price === 0) {
+            tg.MainButton.hide()
+        } else {
+            tg.MainButton.show()
+        }
+    }, )
+
+
     return (
         <div className="container">
             {menu.map((section, index) => (
@@ -90,12 +113,13 @@ const ProductList = () => {
                                 <h3>{item.name}</h3>
                                 <img src={item.img} alt={item.name}/>
                                 <h4>{item.coast}р * {item.weight}</h4>
-                                <button className='buttonAdd'>Добавить</button>
+                                <button className='buttonAdd' onClick={() =>changePrice(item.coast)}>Добавить</button>
                             </div>
                         ))}
                     </div>
                 </div>
             ))}
+        {price}
         </div>
     );
 }
