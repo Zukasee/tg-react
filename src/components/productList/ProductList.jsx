@@ -1,5 +1,7 @@
 import React from 'react';
-import shawarma from '../../fonts/41ba6326746d7aed14737ce4334cad79.jpg';
+import pita from '../../fonts/pita.png';
+import burger from '../../fonts/burger.png';
+import shawarma from '../../fonts/shawarma.png';
 import './ProductList.css';
 
 const ProductList = () => {
@@ -33,19 +35,19 @@ const ProductList = () => {
             items: [
                 {
                     name: 'Классическая',
-                    img: shawarma,
+                    img: pita,
                     weight: '300г',
                     coast: 6
                 },
                 {
                     name: 'С говядиной',
-                    img: shawarma,
+                    img: pita,
                     weight: '300г',
                     coast: 6
                 },
                 {
                     name: 'Сырная',
-                    img: shawarma,
+                    img: pita,
                     weight: '300г',
                     coast: 6
                 }
@@ -56,19 +58,19 @@ const ProductList = () => {
             items: [
                 {
                     name: 'Гамбургер',
-                    img: shawarma,
+                    img: burger,
                     weight: '300г',
                     coast: 4
                 },
                 {
                     name: 'Чизбургер',
-                    img: shawarma,
+                    img: burger,
                     weight: '300г',
                     coast: 4
                 },
                 {
                     name: 'Двойной чизбургер',
-                    img: shawarma,
+                    img: burger,
                     weight: '350г',
                     coast: 6
                 }
@@ -89,6 +91,7 @@ const ProductList = () => {
                                 <h3>{item.name}</h3>
                                 <img src={item.img} alt={item.name}/>
                                 <h4>{item.weight} * {item.coast}</h4>
+                                <button className='buttonAdd'>Добавить</button>
                             </div>
                         ))}
                     </div>

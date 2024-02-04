@@ -22,6 +22,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-end;
   }
   
   .item {
@@ -49,7 +50,24 @@ body {
   }
   
   .item h3 {
-    font-size: 16px;
+    font-size: 17px;
     color: #ff8c00;
   }
   
+  .buttonAdd {
+    background-color: #ff8c00;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .buttonAdd:hover {
+    background-color: #ff7700;
+  }
