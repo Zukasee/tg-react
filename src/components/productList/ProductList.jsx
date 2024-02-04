@@ -91,7 +91,7 @@ const ProductList = () => {
         tg.MainButton.setParams({
             text: `Купить ${price}`
         })
-    }, [])
+    }, [price])
 
     useEffect(() => {
         if(price === 0) {
