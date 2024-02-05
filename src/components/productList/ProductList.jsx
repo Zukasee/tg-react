@@ -111,7 +111,7 @@ const ProductList = () => {
     }, [order, tg.MainButton, navigate]);
 
     useEffect(() => {
-        if(order === 0) {
+        if(order == 0) {
             tg.MainButton.hide()
         } else {
             tg.MainButton.show()
