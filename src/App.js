@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import { useTelegram } from './hooks/useTelegram';
 import Header from './components/header/Header';
@@ -9,8 +10,12 @@ import Way from './components/way/Way';
 import PickUp from './components/pickUp/PickUp';
 import Delivery from './components/delivery/Delivery';
 
+export const userContext = React.createContext();
+
+
 function App() {
-  const {tg, onToggleButton} = useTelegram()
+  const {tg} = useTelegram()
+  const [order, setOrder] = useState([])
 
   useEffect(() => {
     tg.ready();
@@ -18,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <userContext.Provider value={{order, setOrder}}>
       <Header />
       <Routes>
         <Route index element={<ProductList />}/>
@@ -25,7 +31,8 @@ function App() {
         <Route path={'way'} element={<Way/>}/>
         <Route path={'pickUp'} element={<PickUp/>}/>
         <Route path={'delivery'} element={<Delivery/>}/>
-      </Routes>     
+      </Routes>    
+      </userContext.Provider> 
     </div>
   );
 }

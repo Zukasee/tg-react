@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import pita from '../../fonts/pita.png';
 import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
 import './ProductList.css';
 import { useTelegram } from '../../hooks/useTelegram';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../App';
 
 const ProductList = () => {
 
@@ -87,7 +88,10 @@ const ProductList = () => {
 
     const changePrice = (value) => {
         setPrice(price + value)
+        setOrder(price + value)
     }
+
+    const {order, setOrder}= useContext(userContext)
 
     const openForm = useCallback(() => {
         tg.MainButton.hide()
@@ -103,7 +107,7 @@ const ProductList = () => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: `Заказать ${price}р`,
+            text: `Заказать ${order}р`,
         });
     }, [price, tg.MainButton, navigate]);
 
