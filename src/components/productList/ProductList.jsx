@@ -82,16 +82,15 @@ const ProductList = () => {
 
     ]
 
+    const {order, setOrder}= useContext(userContext)
     const navigate = useNavigate()
-    const [price, setPrice] = useState(0)
+    // const [price, setPrice] = useState(0)
     const {tg} = useTelegram()
 
     const changePrice = (value) => {
-        setPrice(price + value)
-        setOrder(price + value)
+        // setPrice(price + value)
+        setOrder(order + value)
     }
-
-    const {order, setOrder}= useContext(userContext)
 
     const openForm = useCallback(() => {
         tg.MainButton.hide()
@@ -109,10 +108,10 @@ const ProductList = () => {
         tg.MainButton.setParams({
             text: `Заказать ${order}р`,
         });
-    }, [price, tg.MainButton, navigate]);
+    }, [order, tg.MainButton, navigate]);
 
     useEffect(() => {
-        if(price === 0) {
+        if(order === 0) {
             tg.MainButton.hide()
         } else {
             tg.MainButton.show()
