@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import c from './Way.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useTelegram } from '../../hooks/useTelegram';
 
 const Way = () => {
+    const {tg} = useTelegram()
+
     useEffect(() => {
         tg.MainButton.hide()
     }, [])
