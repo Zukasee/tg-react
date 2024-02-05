@@ -90,7 +90,7 @@ const ProductList = () => {
     }
 
     const openForm = useCallback(() => {
-        navigate('/form')
+        navigate('/way')
     }, [])
 
     useEffect(() => {
