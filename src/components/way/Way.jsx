@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import c from './Way.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const Way = () => {
+    useEffect(() => {
+        tg.MainButton.hide()
+    }, [])
+
     const navigate = useNavigate()
 
     const inDelivery = () => {

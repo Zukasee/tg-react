@@ -90,6 +90,7 @@ const ProductList = () => {
     }
 
     const openForm = useCallback(() => {
+        tg.MainButton.hide()
         navigate('/way')
     }, [])
 
