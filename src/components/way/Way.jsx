@@ -1,15 +1,26 @@
 import React from 'react';
 import c from './Way.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Way = () => {
+    const navigate = useNavigate()
+
+    const inDelivery = () => {
+        navigate('/delivery')
+    }
+
+    const inPickUp = () => {
+        navigate('/pickUp')
+    }
+
     return (
         <div>
-            <div className={c.delivery}>
+            <button onClick={inDelivery} className={c.delivery}>
                 <h1 className={c.textDelivery}>Доставка</h1>
-            </div>
-            <div className={c.pickup}>
+            </button>
+            <button onClick={inPickUp} className={c.pickup}>
                 <h1>Самовывоз</h1>
-            </div>
+            </button>
         </div>
     );
 }
