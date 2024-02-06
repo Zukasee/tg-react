@@ -1,8 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { userContext } from '../../App';
 
 const Delivery = () => {
     const { order } = useContext(userContext);
+    const [ userName, setUserName ] = useState();
+    const [ phone, setPhone ] = useState();
+    const [ adress, setAdress ] = useState();
+
+    const onChangeUserName = (e) => {
+        setUserName(e.target.value)
+    }
+
+    const onChangePhone = (e) => {
+        setPhone(e.target.value)
+    }
+
+    const onChangeAdress = (e) => {
+        setAdress(e.target.value)
+    }
 
     return (
         <div>
@@ -14,6 +29,10 @@ const Delivery = () => {
                     </li>
                 ))}
             </ul>
+            <h2>Введите данные для доставки</h2>
+            <input type='text' placeholder='Имя' value={userName} onChange={onChangeUserName}></input>
+            <input type='text' placeholder='Имя' value={phone} onChange={onChangePhone}></input>
+            <input type='text' placeholder='Имя' value={adress} onChange={onChangeAdress}></input>
         </div>
     );
 }
