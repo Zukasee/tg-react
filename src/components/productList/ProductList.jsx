@@ -92,40 +92,58 @@ const ProductList = () => {
 
     const {order, setOrder}= useContext(userContext)
     const navigate = useNavigate()
-    // const [price, setPrice] = useState(0)
     const {tg} = useTelegram()
 
     const changePrice = (item) => {
-        // setPrice(price + value)
-        setOrder(order + item.coast)
+        // Создаем копию объекта с заказом
+        const updatedOrder = { ...order };
+
+        if (updatedOrder[item.id]) {
+            // Увеличиваем количество товара в заказе, если он уже был добавлен
+            updatedOrder[item.id].quantity++;
+        } else {
+            // Добавляем новый товар в заказ
+            updatedOrder[item.id] = {
+                id: item.id,
+                name: item.name,
+                coast: item.coast,
+                quantity: 1,
+            };
+        }
+
+        // Обновляем состояние заказа
+        setOrder(updatedOrder);
     }
 
     const openForm = useCallback(() => {
-        tg.MainButton.hide()
-        navigate('/way')
-    }, [])
+        tg.MainButton.hide();
+        navigate('/way');
+    }, [tg.MainButton, navigate]);
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', openForm)
+        tg.onEvent('mainButtonClicked', openForm);
         return () => {
-            tg.offEvent('mainButtonClicked', openForm)
+            tg.offEvent('mainButtonClicked', openForm);
         }
-    }, [])
+    }, [openForm, tg]);
 
     useEffect(() => {
+        // Вычисляем общую стоимость заказа
+        const totalCost = Object.values(order).reduce((total, item) => total + item.coast * item.quantity, 0);
+        
         tg.MainButton.setParams({
-            text: `Заказать ${order}р`,
+            text: `Заказать ${totalCost}р`,
         });
-    }, [order, tg.MainButton, navigate]);
+    }, [order, tg.MainButton]);
 
     useEffect(() => {
-        if(order == 0) {
-            tg.MainButton.hide()
+        // Показываем или скрываем кнопку в зависимости от наличия товаров в заказе
+        if (Object.keys(order).length === 0) {
+            tg.MainButton.hide();
         } else {
-            tg.MainButton.show()
+            tg.MainButton.show();
         }
-    }, )
-
+    }, [order, tg.MainButton]);
 
     return (
         <div className="container">
@@ -138,7 +156,7 @@ const ProductList = () => {
                                 <h3>{item.name}</h3>
                                 <img src={item.img} alt={item.name}/>
                                 <h4>{item.coast}р * {item.weight}</h4>
-                                <button className='buttonAdd' onClick={() =>changePrice(item)}>Добавить</button>
+                                <button className='buttonAdd' onClick={() => changePrice(item)}>Добавить</button>
                             </div>
                         ))}
                     </div>
