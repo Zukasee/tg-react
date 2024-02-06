@@ -17,19 +17,22 @@ const ProductList = () => {
                     name: 'Классическая',
                     img: shawarma,
                     weight: '500г',
-                    coast: 9
+                    coast: 9,
+                    id: 1
                 },
                 {
                     name: 'По корейски',
                     img: shawarma,
                     weight: '400г',
-                    coast: 8
+                    coast: 8,
+                    id: 2
                 },
                 {
                     name: 'Сырная',
                     img: shawarma,
                     weight: '550г',
-                    coast: 10
+                    coast: 10,
+                    id: 3
                 }
             ]    
         },
@@ -40,19 +43,22 @@ const ProductList = () => {
                     name: 'Классическая',
                     img: pita,
                     weight: '300г',
-                    coast: 6
+                    coast: 6,
+                    id: 4
                 },
                 {
                     name: 'С говядиной',
                     img: pita,
                     weight: '300г',
-                    coast: 6
+                    coast: 6,
+                    id: 5
                 },
                 {
                     name: 'Сырная',
                     img: pita,
                     weight: '300г',
-                    coast: 6
+                    coast: 6,
+                    id: 6
                 }
             ]   
         },
@@ -63,19 +69,22 @@ const ProductList = () => {
                     name: 'Гамбургер',
                     img: burger,
                     weight: '300г',
-                    coast: 4
+                    coast: 4,
+                    id: 7
                 },
                 {
                     name: 'Чизбургер',
                     img: burger,
                     weight: '300г',
-                    coast: 4
+                    coast: 4,
+                    id: 8
                 },
                 {
                     name: 'Чикенбургер',
                     img: burger,
                     weight: '350г',
-                    coast: 6
+                    coast: 6,
+                    id: 9
                 }
             ]
         }
@@ -86,9 +95,9 @@ const ProductList = () => {
     // const [price, setPrice] = useState(0)
     const {tg} = useTelegram()
 
-    const changePrice = (value) => {
+    const changePrice = (item) => {
         // setPrice(price + value)
-        setOrder(order + value)
+        setOrder(order + item.coast)
     }
 
     const openForm = useCallback(() => {
@@ -129,7 +138,7 @@ const ProductList = () => {
                                 <h3>{item.name}</h3>
                                 <img src={item.img} alt={item.name}/>
                                 <h4>{item.coast}р * {item.weight}</h4>
-                                <button className='buttonAdd' onClick={() =>changePrice(item.coast)}>Добавить</button>
+                                <button className='buttonAdd' onClick={() =>changePrice(item)}>Добавить</button>
                             </div>
                         ))}
                     </div>

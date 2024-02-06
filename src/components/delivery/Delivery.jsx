@@ -8,7 +8,7 @@ const Delivery = () => {
     return (
         <div>
             Delivery
-            {order}
+            {order.coast}
         </div>
     );
 }
