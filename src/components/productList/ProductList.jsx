@@ -107,6 +107,7 @@ const ProductList = () => {
                 id: item.id,
                 name: item.name,
                 coast: item.coast,
+                weight: item.weight,
                 quantity: 1,
             };
         }

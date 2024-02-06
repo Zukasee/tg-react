@@ -2,13 +2,18 @@ import React, { useContext } from 'react';
 import { userContext } from '../../App';
 
 const Delivery = () => {
-
-    const {order, seOrder} = useContext(userContext)
+    const { order } = useContext(userContext);
 
     return (
         <div>
-            Delivery
-            {order.coast}
+            <h2>Итоговый заказ</h2>
+            <ul>
+                {Object.values(order).map((item) => (
+                    <li key={item.id}>
+                        {item.name} - {item.quantity} шт. - {item.coast * item.quantity}р
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
