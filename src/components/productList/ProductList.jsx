@@ -98,18 +98,27 @@ const ProductList = () => {
         // Создаем копию объекта с заказом
         const updatedOrder = { ...order };
 
-        if (updatedOrder[item.id]) {
-            // Увеличиваем количество товара в заказе, если он уже был добавлен
-            updatedOrder[item.id].quantity++;
-        } else {
-            // Добавляем новый товар в заказ
-            updatedOrder[item.id] = {
-                id: item.id,
-                name: item.name,
-                coast: item.coast,
-                weight: item.weight,
-                quantity: 1,
-            };
+        // Находим секцию, к которой принадлежит товар
+        const section = menu.find((sec) => sec.items.some((menuitem) => menuitem.id === item.id));
+    
+        if (section) {
+            // Если секция найдена
+            const sectionName = section.section;
+            const itemName = `${sectionName} ${item.name}`;
+    
+            if (updatedOrder[item.id]) {
+                // Увеличиваем количество товара в заказе, если он уже был добавлен
+                updatedOrder[item.id].quantity++;
+            } else {
+                // Добавляем новый товар в заказ
+                updatedOrder[item.id] = {
+                    id: item.id,
+                    name: itemName,
+                    coast: item.coast,
+                    weight: item.weight,
+                    quantity: 1,
+                };
+            }
         }
 
         // Обновляем состояние заказа
