@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { userContext } from '../../App';
+import s from './Delivery.module.css';
 
 const Delivery = () => {
     const { order } = useContext(userContext);
@@ -20,7 +21,7 @@ const Delivery = () => {
     }
 
     return (
-        <div>
+        <div className={s.form}>
             <h2>Итоговый заказ</h2>
             <ul>
                 {Object.values(order).map((item) => (
@@ -30,9 +31,9 @@ const Delivery = () => {
                 ))}
             </ul>
             <h2>Введите данные для доставки</h2>
-            <input type='text' placeholder='Имя' value={userName} onChange={onChangeUserName}></input>
-            <input type='text' placeholder='Имя' value={phone} onChange={onChangePhone}></input>
-            <input type='text' placeholder='Имя' value={adress} onChange={onChangeAdress}></input>
+            <input className={s.input} type='text' placeholder='Имя' value={userName} onChange={onChangeUserName}></input>
+            <input className={s.input} type='text' placeholder='Номер телефона' value={phone} onChange={onChangePhone}></input>
+            <input className={s.input} type='text' placeholder='Ваш адресс' value={adress} onChange={onChangeAdress}></input>
         </div>
     );
 }
