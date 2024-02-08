@@ -52,7 +52,7 @@ const Delivery = () => {
 
     return (
         <div className={s.form}>
-            <h2>Итоговый заказ</h2>
+            <h2>ВАШ ЗАКАЗ</h2>
             <ul>
                 {Object.values(order).map((item) => (
                     <li key={item.id}>
