@@ -10,7 +10,7 @@ import Form from '../form/Form';
 
 const Delivery = () => { 
     
-    const [adress, setAdress] = useState()
+    const [adress, setAdress] = useState('')
 
     const onChangeAdress = (e) => {
         setAdress(e.target.value)
@@ -18,7 +18,7 @@ const Delivery = () => {
     
     return (
         <>
-            <Form />
+            <Form adress={adress} />
             <input className={s.input} type='text' placeholder='Ваш адресс' value={adress} onChange={onChangeAdress}></input>
         </>
     );

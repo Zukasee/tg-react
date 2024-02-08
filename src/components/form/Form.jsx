@@ -7,7 +7,7 @@ import shawarma from '../../fonts/shawarma.png';
 import { useTelegram } from '../../hooks/useTelegram';
 import './Form.css';
 
-const Form = () => {    
+const Form = (props) => {    
     const { order } = useContext(userContext);
     const [ userName, setUserName ] = useState();
     const [ phone, setPhone ] = useState();
@@ -33,12 +33,12 @@ const Form = () => {
 
     useEffect(() => {
         // Показываем или скрываем кнопку в зависимости от наличия информации
-        if (!userName || !phone) {
+        if (!userName || !phone || !props.adress) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [userName, phone]);
+    }, [userName, phone, props.adress]);
 
     const images = {
         'Шаурма': shawarma,
