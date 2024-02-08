@@ -28,7 +28,6 @@ const Form = (props) => {
         
         tg.MainButton.setParams({
             text: `Оплатить ${totalCost}р`,
-            color: green,
         });
     }, [userName, phone]);
 
