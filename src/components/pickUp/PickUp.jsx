@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
 import { userContext } from '../../App';
+import Form from '../form/Form';
 
 const PickUp = () => {
-
-    const {order, setOrder} = useContext(userContext)
-
     return (
         <div>
-            PickUp
-            {order}
+            <Form />
         </div>
     );
 }

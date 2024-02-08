@@ -1,0 +1,31 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.select {
+    padding: 10px;
+    margin-top: 15px;
+}
+  
+  .quantity {
+    color: orange; /* Цвет оранжевого текста */
+  }
+  
+  .cost {
+    margin-left: auto; /* Сдвигает стоимость вправо (к правому краю) */
+  }
+
+  .img_item {
+    width: 45px; /* Регулируйте размер изображения по вашему желанию */
+    height: auto;
+    margin-right: 10px;
+  }
