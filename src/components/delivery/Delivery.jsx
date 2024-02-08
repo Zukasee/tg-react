@@ -8,7 +8,14 @@ import { useTelegram } from '../../hooks/useTelegram';
 import './Delivery.css';
 import Form from '../form/Form';
 
-const Delivery = () => {    
+const Delivery = () => { 
+    
+    const [adress, setAdress] = useState()
+
+    const onChangeAdress = (e) => {
+        setAdress(e.target.value)
+    }
+    
     return (
         <>
             <Form />
