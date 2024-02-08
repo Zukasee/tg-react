@@ -35,8 +35,8 @@ const Delivery = () => {
     }, [userName, phone, adress]);
 
     useEffect(() => {
-        // Показываем или скрываем кнопку в зависимости от наличия товаров в заказе
-        if (!userName && !phone && !adress) {
+        // Показываем или скрываем кнопку в зависимости от наличия информации
+        if (!userName || !phone || !adress) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
