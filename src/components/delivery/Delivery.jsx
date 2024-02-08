@@ -1,8 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { userContext } from '../../App';
 import s from './Delivery.module.css';
+import pita from '../../fonts/pita.png';
+import burger from '../../fonts/burger.png';
+import shawarma from '../../fonts/shawarma.png';
 
-const Delivery = () => {
+const Delivery = () => {    
     const { order } = useContext(userContext);
     const [ userName, setUserName ] = useState();
     const [ phone, setPhone ] = useState();
@@ -19,6 +22,24 @@ const Delivery = () => {
     const onChangeAdress = (e) => {
         setAdress(e.target.value)
     }
+
+    useEffect(() => {
+        // Вычисляем общую стоимость заказа
+        const totalCost = Object.values(order).reduce((total, item) => total + item.coast * item.quantity, 0);
+        
+        tg.MainButton.setParams({
+            text: `Заказать ${totalCost}р`,
+        });
+    }, [order, tg.MainButton]);
+
+    useEffect(() => {
+        // Показываем или скрываем кнопку в зависимости от наличия товаров в заказе
+        if (!userName && !phone && !adress) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+        }
+    }, [userName, phone, adress]);
 
     return (
         <div className={s.form}>

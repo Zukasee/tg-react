@@ -24,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <userContext.Provider value={{order, setOrder}}>
-      <Header />
       <Routes>
         <Route index element={<ProductList />}/>
         <Route path={'form'} element={<Form />}/>  
