@@ -11,7 +11,6 @@ const Form = () => {
     const { order } = useContext(userContext);
     const [ userName, setUserName ] = useState();
     const [ phone, setPhone ] = useState();
-    const [ adress, setAdress ] = useState();
     const {tg} = useTelegram();
 
     const onChangeUserName = (e) => {
@@ -22,27 +21,24 @@ const Form = () => {
         setPhone(e.target.value)
     }
 
-    const onChangeAdress = (e) => {
-        setAdress(e.target.value)
-    }
 
     useEffect(() => {
         // Вычисляем общую стоимость заказа
         const totalCost = Object.values(order).reduce((total, item) => total + item.coast * item.quantity, 0);
         
         tg.MainButton.setParams({
-            text: `Заказать ${totalCost}р`,
+            text: `Оплатить ${totalCost}р`,
         });
-    }, [userName, phone, adress]);
+    }, [userName, phone]);
 
     useEffect(() => {
         // Показываем или скрываем кнопку в зависимости от наличия информации
-        if (!userName || !phone || !adress) {
+        if (!userName || !phone) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [userName, phone, adress]);
+    }, [userName, phone]);
 
     const images = {
         'Шаурма': shawarma,
@@ -66,7 +62,6 @@ const Form = () => {
             <h2>Введите данные для доставки</h2>
             <input className={s.input} type='text' placeholder='Имя' value={userName} onChange={onChangeUserName}></input>
             <input className={s.input} type='text' placeholder='Номер телефона' value={phone} onChange={onChangePhone}></input>
-            <input className={s.input} type='text' placeholder='Ваш адресс' value={adress} onChange={onChangeAdress}></input>
         </div>
     );
 }
