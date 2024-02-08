@@ -5,6 +5,7 @@ import pita from '../../fonts/pita.png';
 import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
 import { useTelegram } from '../../hooks/useTelegram';
+import './Delivery.css';
 
 const Delivery = () => {    
     const { order } = useContext(userContext);
@@ -46,7 +47,7 @@ const Delivery = () => {
     const images = {
         'Шаурма': shawarma,
         'Пита': pita,
-        'Бургер': burger
+        'Бургеры': burger
       };
 
     return (
@@ -56,7 +57,9 @@ const Delivery = () => {
                 {Object.values(order).map((item) => (
                     <li key={item.id}>
                         <img src={images[item.name.split(' ')[0]]} alt={item.name.split(' ')[0]} />
-                        {item.name} - {item.quantity} шт. - {item.coast * item.quantity}р
+                        <span>{item.name}</span>
+                        <span className={s.quantity}>{item.quantity} шт.</span>
+                        <span className={s.cost}>{item.coast * item.quantity}р</span>
                     </li>
                 ))}
             </ul>

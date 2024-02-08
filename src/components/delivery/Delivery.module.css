@@ -15,3 +15,11 @@
     padding: 10px;
     margin-top: 15px;
 }
+  
+  .quantity {
+    color: orange; /* Цвет оранжевого текста */
+  }
+  
+  .cost {
+    margin-left: auto; /* Сдвигает стоимость вправо (к правому краю) */
+  }
