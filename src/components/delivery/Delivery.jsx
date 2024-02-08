@@ -43,12 +43,19 @@ const Delivery = () => {
         }
     }, [userName, phone, adress]);
 
+    const images = {
+        'Шаурма': shawarma,
+        'Пита': pita,
+        'Бургер': burger
+      };
+
     return (
         <div className={s.form}>
             <h2>Итоговый заказ</h2>
             <ul>
                 {Object.values(order).map((item) => (
                     <li key={item.id}>
+                        <img src={images[item.name.split(' ')[0]]} alt={item.name.split(' ')[0]} />
                         {item.name} - {item.quantity} шт. - {item.coast * item.quantity}р
                     </li>
                 ))}
