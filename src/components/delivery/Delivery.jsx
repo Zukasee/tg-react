@@ -7,6 +7,9 @@ import shawarma from '../../fonts/shawarma.png';
 import { useTelegram } from '../../hooks/useTelegram';
 import './Delivery.css';
 import Form from '../form/Form';
+import { Route, Routes } from 'react-router-dom';
+import Map from './map/Map';
+import Write from './write/Write';
 
 const Delivery = () => { 
     

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { userContext } from '../../App';
 import s from './Form.module.css';
 import pita from '../../fonts/pita.png';
@@ -20,6 +20,25 @@ const Form = (props) => {
     const onChangePhone = (e) => {
         setPhone(e.target.value)
     }
+
+
+
+    const onSendData = useCallback(() => {
+        const data ={
+            userName,
+            phone,
+            props
+        }
+        tg.sendData(JSON.stringify(data))
+    }, [userName, phone, props])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [])
+
 
 
     useEffect(() => {

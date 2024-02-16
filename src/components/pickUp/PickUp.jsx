@@ -3,9 +3,12 @@ import { userContext } from '../../App';
 import Form from '../form/Form';
 
 const PickUp = () => {
+
+    const ownadress = 'самовывоз'
+
     return (
         <div>
-            <Form />
+            <Form adress={ownadress}/>
         </div>
     );
 }
