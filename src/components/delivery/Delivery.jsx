@@ -13,7 +13,7 @@ import Write from './write/Write';
 
 const Delivery = () => { 
     
-    const [adress, setAdress] = useState('')
+    const [adress, setAdress] = useState()
 
     const onChangeAdress = (e) => {
         setAdress(e.target.value)

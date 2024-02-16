@@ -22,8 +22,6 @@ const Form = (props) => {
         setPhone(e.target.value)
     }
 
-
-
     const onSendData = useCallback(() => {
         const data = {
             userName,
@@ -33,7 +31,7 @@ const Form = (props) => {
             order,
         }
         tg.sendData(JSON.stringify(data))
-    }, [userName, phone])
+    }, [userName, phone, props])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
