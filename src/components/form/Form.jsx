@@ -29,6 +29,7 @@ const Form = (props) => {
             userName,
             phone,
             test,
+            props,
             order,
         }
         tg.sendData(JSON.stringify(data))
