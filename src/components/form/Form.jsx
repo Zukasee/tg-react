@@ -11,6 +11,7 @@ const Form = (props) => {
     const { order } = useContext(userContext);
     const [ userName, setUserName ] = useState();
     const [ phone, setPhone ] = useState();
+    const test = 'test';
     const {tg} = useTelegram();
 
     const onChangeUserName = (e) => {
@@ -24,9 +25,10 @@ const Form = (props) => {
 
 
     const onSendData = useCallback(() => {
-        const data ={
+        const data = {
             userName,
-            phone
+            phone,
+            test
         }
         tg.sendData(JSON.stringify(data))
     }, [userName, phone])
@@ -36,7 +38,7 @@ const Form = (props) => {
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
-    }, [])
+    }, [onSendData])
 
 
 
