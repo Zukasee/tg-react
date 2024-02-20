@@ -31,7 +31,6 @@ const Form = (props) => {
             order,
         }
         tg.sendData(JSON.stringify(data))
-        tg.answerInlineQuery(JSON.stringify(data))
     }, [userName, phone, props])
 
     useEffect(() => {
