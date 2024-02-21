@@ -82,7 +82,7 @@ const Form = (props) => {
                 {Object.values(order).map((item) => (
                     <li key={item.id}>
                         <img className={s.img_item} src={images[item.name.split(' ')[0]]} alt={item.name.split(' ')[0]} />
-                        <span>{item.name}&nbsp; &nbsp;</span>
+                        <span className={s.spanName}>{item.name}&nbsp; &nbsp;</span>
                         <span className={s.quantity}>{item.quantity} шт.</span>
                         <span className={s.cost}>{item.coast * item.quantity}р</span>
                     </li>
