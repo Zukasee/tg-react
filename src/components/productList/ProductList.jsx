@@ -163,12 +163,27 @@ const ProductList = () => {
         </div>
     );
 
+    const renderAddButtons = () => (
+        <button className='buttonAdd' onClick={() => changePrice(item)}>Добавить</button>
+    )
+
     const updateQuantity = (itemId, newQuantity) => {
-        // Update the quantity for the given item
-        const updatedOrder = { ...order };
-        updatedOrder[itemId].quantity = newQuantity;
-        setOrder(updatedOrder);
-    };
+        if (newQuantity === 0) {
+            // Отображаем кнопку "Добавить", когда количество равно нулю
+            setOrder((prevOrder) => {
+                const updatedOrder = { ...prevOrder };
+                delete updatedOrder[itemId];
+                return updatedOrder;
+            });
+        } else {
+            // Обновляем количество для данного товара
+            setOrder((prevOrder) => {
+                const updatedOrder = { ...prevOrder };
+                updatedOrder[itemId].quantity = newQuantity;
+                return updatedOrder;
+            });
+        }
+    }
 
     return (
         <div className="container">
