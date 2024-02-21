@@ -53,7 +53,7 @@ const Form = (props) => {
 
     useEffect(() => {
         // Показываем или скрываем кнопку в зависимости от наличия информации
-        if (!userName || !phone || !props.adress) {
+        if (!userName || !phone || !props.adress == "самовывоз" || !props.adress.fullAdress) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
