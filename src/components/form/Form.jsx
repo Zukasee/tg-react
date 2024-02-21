@@ -53,12 +53,12 @@ const Form = (props) => {
 
     useEffect(() => {
         // Показываем или скрываем кнопку в зависимости от наличия информации
-        if (!userName || !phone || !props.adress == "самовывоз" && !props.adress.fullAdress == "") {
+        if (!userName || !phone || !props.adress.fullAddress) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [userName, phone, props.adress]);
+    }, [userName, phone, props.adress.fullAddress]);
 
     const images = {
         'Шаурма': shawarma,

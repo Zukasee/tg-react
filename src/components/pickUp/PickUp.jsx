@@ -4,7 +4,9 @@ import Form from '../form/Form';
 
 const PickUp = () => {
 
-    const ownadress = 'самовывоз'
+    const ownadress = {
+        fullAddress : "самовывоз"
+    }
 
     return (
         <div>
