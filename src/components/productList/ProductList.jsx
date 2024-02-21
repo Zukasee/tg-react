@@ -155,6 +155,21 @@ const ProductList = () => {
         }
     }, [order, tg.MainButton]);
 
+    const renderQuantityButtons = (itemId, quantity) => (
+        <div className="quantity-buttons">
+            <button className="quantity-button" onClick={() => updateQuantity(itemId, quantity - 1)}>-</button>
+            <div className="quantity-display">{quantity}</div>
+            <button className="quantity-button" onClick={() => updateQuantity(itemId, quantity + 1)}>+</button>
+        </div>
+    );
+
+    const updateQuantity = (itemId, newQuantity) => {
+        // Update the quantity for the given item
+        const updatedOrder = { ...order };
+        updatedOrder[itemId].quantity = newQuantity;
+        setOrder(updatedOrder);
+    };
+
     return (
         <div className="container">
             {menu.map((section, index) => (
@@ -166,7 +181,11 @@ const ProductList = () => {
                                 <h3>{item.name}</h3>
                                 <img src={item.img} alt={item.name}/>
                                 <h4>{item.coast}р * {item.weight}</h4>
-                                <button className='buttonAdd' onClick={() => changePrice(item)}>Добавить</button>
+                                {order[item.id] ? (
+                                    renderQuantityButtons(item.id, order[item.id].quantity)
+                                ) : (
+                                    <button className='buttonAdd' onClick={() => changePrice(item)}>Добавить</button>
+                                )}
                             </div>
                         ))}
                     </div>

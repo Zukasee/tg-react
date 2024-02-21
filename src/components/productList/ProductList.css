@@ -77,3 +77,29 @@ body {
 .buttonAdd:hover {
   background-color: #ff7700;
 }
+
+.quantity-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-button {
+  background-color: #ff8c00;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.quantity-display {
+  font-size: 16px;
+  color: var(--tg-theme-text-color);
+  margin: 0 8px;
+}
