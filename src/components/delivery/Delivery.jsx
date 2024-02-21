@@ -16,6 +16,7 @@ const Delivery = () => {
     const [doorCode, setDoorCode] = useState();
     const [floor, setFloor] = useState();
     const [apartment, setApartment] = useState();
+    const [fullAddress, setfullAdress] = useState();
 
     const [adress, setAdress] = useState({
         fullAddress: '',
