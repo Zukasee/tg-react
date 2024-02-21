@@ -66,7 +66,7 @@ const Delivery = () => {
             <Form adress={adress} />
             <div className={s.deliveryForm}>
                 <h2>Адрес</h2>
-                <input className={s.allInput} type='text' placeholder='Город, улица и дом' value={adress} onChange={onChangeAdress}></input>
+                <input className={s.allInput} type='text' placeholder='Город, улица и дом' value={fullAddress} onChange={onChangeAdress}></input>
                 
                 <div className={s.inputRow}>
                     <div className={s.miniDiv}>
