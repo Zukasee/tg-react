@@ -12,31 +12,52 @@ import Map from './map/Map';
 import Write from './write/Write';
 
 const Delivery = () => { 
-    
-    const [adress, setAdress] = useState();
     const [entrance, setEntrance] = useState();
     const [doorCode, setDoorCode] = useState();
     const [floor, setFloor] = useState();
     const [apartment, setApartment] = useState();
 
+    const [adress, setAdress] = useState({
+        fullAddress: '',
+        entrance: '',
+        doorCode: '',
+        floor: '',
+        apartment: '',
+    });
+
     const onChangeAdress = (e) => {
-        setAdress(e.target.value);
+        setAdress({
+            ...adress,
+            fullAddress: e.target.value,
+        });
     }
 
     const onChangeEntrance = (e) => {
-        setEntrance(e.target.value);
+        setAdress({
+            ...adress,
+            entrance: e.target.value,
+        });
     }
 
     const onChangeDoorCode = (e) => {
-        setDoorCode(e.target.value);
+        setAdress({
+            ...adress,
+            doorCode: e.target.value,
+        });
     }
 
     const onChangeFloor = (e) => {
-        setFloor(e.target.value);
+        setAdress({
+            ...adress,
+            floor: e.target.value,
+        });
     }
 
     const onChangeApartment = (e) => {
-        setApartment(e.target.value);
+        setAdress({
+            ...adress,
+            apartment: e.target.value,
+        });
     }
 
     
