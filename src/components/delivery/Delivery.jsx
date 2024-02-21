@@ -49,22 +49,22 @@ const Delivery = () => {
                 
                 <div className={s.inputRow}>
                     <div className={s.miniDiv}>
-                        <label>Подъезд</label>
+                        {/* <label>Подъезд</label> */}
                         <input className={s.miniInput} type='text' placeholder='Подъезд' value={entrance} onChange={onChangeEntrance}></input>
                     </div>
                     <div className={s.miniDiv}>
-                        <label>Код на двери</label>
+                        {/* <label>Код на двери</label> */}
                         <input className={s.miniInput} type='text' placeholder='Код на двери' value={doorCode} onChange={onChangeDoorCode}></input>
                     </div>
                 </div>
 
                 <div className={s.inputRow}>
                     <div className={s.miniDiv}>
-                        <label>Этаж</label>
+                        {/* <label>Этаж</label> */}
                         <input className={s.miniInput} type='text' placeholder='Этаж' value={floor} onChange={onChangeFloor}></input>
                     </div>
                     <div className={s.miniDiv}>
-                        <label>Квартира</label>
+                        {/* <label>Квартира</label> */}
                         <input className={s.miniInput} type='text' placeholder='Квартира' value={apartment} onChange={onChangeApartment}></input>
                     </div>
                 </div>
