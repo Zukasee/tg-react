@@ -22,7 +22,10 @@ const Delivery = () => {
     return (
         <>
             <Form adress={adress} />
-            <input className={s.input} type='text' placeholder='Ваш адресс' value={adress} onChange={onChangeAdress}></input>
+            <div className={s.deliveryForm}>
+                <h2>Адрес</h2>
+                <input className={s.allInput} type='text' placeholder='Город, улица и дом' value={adress} onChange={onChangeAdress}></input>                
+            </div>
         </>
     );
 }
