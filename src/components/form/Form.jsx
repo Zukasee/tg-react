@@ -6,6 +6,7 @@ import burger from '../../fonts/burger.png';
 import shawarma from '../../fonts/shawarma.png';
 import { useTelegram } from '../../hooks/useTelegram';
 import './Form.css';
+import { useNavigate } from 'react-router-dom';
 
 const Form = (props) => {    
     const { order } = useContext(userContext);
@@ -13,6 +14,11 @@ const Form = (props) => {
     const [ phone, setPhone ] = useState();
     const test = 'test';
     const {tg} = useTelegram();
+    const navigate = useNavigate()
+
+    const openProductList = () => {
+        navigate('/')
+    } 
 
     const onChangeUserName = (e) => {
         setUserName(e.target.value)
@@ -68,7 +74,10 @@ const Form = (props) => {
 
     return (
         <div className={s.form}>
-            <h2>ВАШ ЗАКАЗ</h2>
+            <div className={s.topText}> 
+                <h2>ВАШ ЗАКАЗ</h2>
+                <h4 onClick={openProductList}>Редактировать заказ</h4>
+            </div>
             <ul>
                 {Object.values(order).map((item) => (
                     <li key={item.id}>

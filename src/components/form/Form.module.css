@@ -30,3 +30,9 @@
     height: auto;
     margin-right: 10px;
   }
+
+.topText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
