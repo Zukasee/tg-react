@@ -13,18 +13,61 @@ import Write from './write/Write';
 
 const Delivery = () => { 
     
-    const [adress, setAdress] = useState()
+    const [adress, setAdress] = useState();
+    const [entrance, setEntrance] = useState();
+    const [doorCode, setDoorCode] = useState();
+    const [floor, setFloor] = useState();
+    const [apartment, setApartment] = useState();
 
     const onChangeAdress = (e) => {
-        setAdress(e.target.value)
+        setAdress(e.target.value);
     }
+
+    const onChangeEntrance = (e) => {
+        setEntrance(e.target.value);
+    }
+
+    const onChangeDoorCode = (e) => {
+        setDoorCode(e.target.value);
+    }
+
+    const onChangeFloor = (e) => {
+        setFloor(e.target.value);
+    }
+
+    const onChangeApartment = (e) => {
+        setApartment(e.target.value);
+    }
+
     
     return (
         <>
             <Form adress={adress} />
             <div className={s.deliveryForm}>
                 <h2>Адрес</h2>
-                <input className={s.allInput} type='text' placeholder='Город, улица и дом' value={adress} onChange={onChangeAdress}></input>                
+                <input className={s.allInput} type='text' placeholder='Город, улица и дом' value={adress} onChange={onChangeAdress}></input>
+                
+                <div className={s.inputRow}>
+                    <div className={s.miniDiv}>
+                        <label>Подъезд</label>
+                        <input className={s.miniInput} type='text' placeholder='Подъезд' value={entrance} onChange={onChangeEntrance}></input>
+                    </div>
+                    <div className={s.miniDiv}>
+                        <label>Код на двери</label>
+                        <input className={s.miniInput} type='text' placeholder='Код на двери' value={doorCode} onChange={onChangeDoorCode}></input>
+                    </div>
+                </div>
+
+                <div className={s.inputRow}>
+                    <div className={s.miniDiv}>
+                        <label>Этаж</label>
+                        <input className={s.miniInput} type='text' placeholder='Этаж' value={floor} onChange={onChangeFloor}></input>
+                    </div>
+                    <div className={s.miniDiv}>
+                        <label>Квартира</label>
+                        <input className={s.miniInput} type='text' placeholder='Квартира' value={apartment} onChange={onChangeApartment}></input>
+                    </div>
+                </div>
             </div>
         </>
     );
