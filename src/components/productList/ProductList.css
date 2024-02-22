@@ -61,6 +61,7 @@ body {
 }
 
 .buttonAdd {
+  height: 38.5px;
   background-color: #ff8c00;
   border: none;
   color: white;
@@ -86,6 +87,7 @@ body {
 
 .quantity-button {
   height: 38.5px;
+  width: 30px;
   background-color: #ff8c00;
   border: none;
   color: white;

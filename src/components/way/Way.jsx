@@ -20,6 +20,10 @@ const Way = () => {
         navigate('/pickUp')
     }
 
+    const inProductList = () => {
+        navigate('/')
+    }
+
     return (
         <div>
             <button onClick={inDelivery} className={c.delivery}>
@@ -27,6 +31,9 @@ const Way = () => {
             </button>
             <button onClick={inPickUp} className={c.pickup}>
                 <h1>Самовывоз</h1>
+            </button>
+            <button onClick={inProductList} className={c.productList}>
+                <h1>Редактировать заказ</h1>
             </button>
         </div>
     );
