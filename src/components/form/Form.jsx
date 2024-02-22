@@ -13,7 +13,7 @@ const Form = (props) => {
     const [ userName, setUserName ] = useState();
     const [ phone, setPhone ] = useState();
     const test = 'test';
-    const {tg} = useTelegram();
+    const {tg, queryId} = useTelegram();
     const navigate = useNavigate()
 
     const openProductList = () => {
@@ -35,9 +35,17 @@ const Form = (props) => {
             test,
             props,
             order,
+            queryId,
         }
         tg.sendData(JSON.stringify(data))
-    }, [userName, phone, props])
+        fetch('https://git.heroku.com/morning-scrubland-61652.git', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    }, [userName, phone, props, order, queryId])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
