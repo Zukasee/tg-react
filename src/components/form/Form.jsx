@@ -38,7 +38,7 @@ const Form = (props) => {
             queryId,
         }
         tg.sendData(JSON.stringify(data))
-        fetch('https://git.heroku.com/morning-scrubland-61652.git', {
+        fetch('https://morning-scrubland-61652-88f7afd9cea2.herokuapp.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
