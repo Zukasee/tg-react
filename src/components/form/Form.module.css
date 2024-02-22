@@ -40,3 +40,7 @@
 .spanName {
   color: var(--tg-theme-text-color);
 }
+
+.green {
+  color: yellowgreen;
+}

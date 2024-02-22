@@ -76,7 +76,7 @@ const Delivery = () => {
                     </div>
                     <div className={s.miniDiv}>
                         {/* <label>Код на двери</label> */}
-                        <input className={s.miniInput} type='text' placeholder='Код на двери' value={doorCode} onChange={onChangeDoorCode}></input>
+                        <input className={s.miniInput} type='text' placeholder='Код от двери' value={doorCode} onChange={onChangeDoorCode}></input>
                     </div>
                 </div>
 

@@ -76,7 +76,7 @@ const Form = (props) => {
         <div className={s.form}>
             <div className={s.topText}> 
                 <h2>ВАШ ЗАКАЗ</h2>
-                <h4 onClick={openProductList}>Редактировать заказ</h4>
+                <h4 className={s.green} onClick={openProductList}>Редактировать заказ</h4>
             </div>
             <ul>
                 {Object.values(order).map((item) => (
