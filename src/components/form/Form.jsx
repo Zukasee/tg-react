@@ -37,7 +37,6 @@ const Form = (props) => {
             order,
             queryId,
         }
-        tg.sendData(JSON.stringify(data))
         fetch('https://morning-scrubland-61652-88f7afd9cea2.herokuapp.com', {
             method: 'POST',
             headers: {
@@ -45,6 +44,7 @@ const Form = (props) => {
             },
             body: JSON.stringify(data)
         })
+        tg.sendData(JSON.stringify(data))
     }, [userName, phone, props, order, queryId])
 
     useEffect(() => {
