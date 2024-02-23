@@ -83,12 +83,12 @@ const Form = (props) => {
     return (
         <div className={s.form}>
             <div className={s.topText}> 
-                <h2>ВАШ ЗАКАЗ</h2>
+                <h2>Ваш заказ</h2>
                 <h4 className={s.green} onClick={openProductList}>Редактировать заказ</h4>
             </div>
             <ul>
                 {Object.values(order).map((item) => (
-                    <li key={item.id}>
+                    <li className={s.menuItem} key={item.id}>
                         <img className={s.img_item} src={images[item.name.split(' ')[0]]} alt={item.name.split(' ')[0]} />
                         <span className={s.spanName}>{item.name}&nbsp; &nbsp;</span>
                         <span className={s.quantity}>{item.quantity} шт.</span>

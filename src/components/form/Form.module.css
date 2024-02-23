@@ -26,7 +26,7 @@
   }
 
   .img_item {
-    width: 45px; /* Регулируйте размер изображения по вашему желанию */
+    width: 55px; /* Регулируйте размер изображения по вашему желанию */
     height: auto;
     margin-right: 10px;
   }
@@ -35,6 +35,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+.menuItem {
+  margin-left: 5px;
 }
 
 .spanName {
