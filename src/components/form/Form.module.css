@@ -9,8 +9,11 @@
     width: 100%;
     padding: 12px;
     margin-top: 15px;
+    border: 2px whitesmoke solid;
     border-radius: 5px;
     background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    font-size: 17px;
 }
 
 .select {
