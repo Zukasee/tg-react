@@ -99,7 +99,7 @@ const Form = (props) => {
                     </li>
                 ))}
             </ul>
-            <h2>Введите данные для заказа</h2>
+            <h2 className={s.zakaztext}>Введите данные для заказа</h2>
             <input className={s.input} type='text' placeholder='Имя' value={userName} onChange={onChangeUserName}></input>
             <input className={s.input} type='text' placeholder='Номер телефона' value={phone} onChange={onChangePhone}></input>
         </div>
