@@ -6,6 +6,7 @@
     border-radius: 5px;
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
+    font-size: 14px;
 }
 .deliveryForm {
     display: flex;
@@ -22,7 +23,12 @@
 .miniInput {
     width: 100%;
     padding: 12px;
-    margin-top: 5px;   
+    margin-top: 5px;
+    border: 1px #ff8c00 solid;
+    border-radius: 5px;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);  
+    font-size: 14px; 
 }
 
 .miniDiv {
