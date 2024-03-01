@@ -11,8 +11,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
     border-radius: 6px;
+    font-weight: 550;
 }
 
 .ownTimeText {
