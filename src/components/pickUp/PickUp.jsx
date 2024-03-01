@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { userContext } from '../../App';
 import Form from '../form/Form';
+import Time from '../time/Time';
 
 const PickUp = () => {
 
@@ -11,6 +12,7 @@ const PickUp = () => {
     return (
         <div>
             <Form adress={ownadress}/>
+            <Time />
         </div>
     );
 }

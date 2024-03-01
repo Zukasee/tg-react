@@ -10,6 +10,7 @@ import Form from '../form/Form';
 import { Route, Routes } from 'react-router-dom';
 import Map from './map/Map';
 import Write from './write/Write';
+import Time from '../time/Time';
 
 const Delivery = () => { 
     const [entrance, setEntrance] = useState();
@@ -91,6 +92,7 @@ const Delivery = () => {
                     </div>
                 </div>
             </div>
+            <Time />
         </>
     );
 }

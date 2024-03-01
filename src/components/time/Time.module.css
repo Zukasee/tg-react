@@ -1,0 +1,27 @@
+.times {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.time {
+    width: 60px;
+    height: 33px;
+    background-color: #ff8c00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tg-theme-text-color);
+    border-radius: 6px;
+}
+
+.ownTimeText {
+    width: 112px;
+    height: 33px;
+    background-color: #ff8c00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tg-theme-text-color);
+    border-radius: 6px;
+}

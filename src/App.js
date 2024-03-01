@@ -31,7 +31,7 @@ function App() {
         <Route path={'pickUp'} element={<PickUp/>}/>
         <Route path={'delivery'} element={<Delivery/>}/>
       </Routes>    
-      </userContext.Provider> 
+      </userContext.Provider>
     </div>
   );
 }
