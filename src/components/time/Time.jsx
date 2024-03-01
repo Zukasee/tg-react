@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import s from './Time.module.css';
+import dayjs from 'dayjs';
+import { TimePicker } from 'antd';
+
 
 const Time = () => {
+    const [selectedTime, setSelctedTime] = useState(null)
     const [time, setTime] = useState(new Date());
 
     const times = [
@@ -20,15 +24,23 @@ const Time = () => {
         return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
     };
 
+    const handleClickTime = (index) => {
+        if (index === selectedTime) {
+            setSelctedTime(null)
+        } else {
+            setSelctedTime(index)
+        }
+    }
+
     return (
         <div className={s.times}>
             {times.map((timeObject, index) => (
-                <div key={index} className={s.time}>
+                <div key={index} className={`${s.time} ${index === selectedTime ? s.selectedTime : ''}`} onClick={() => handleClickTime(index)}>
                     {`${formatTime(timeObject.newTime)}`}
                 </div>
             ))}
-            <div className={s.ownTimeText}>
-                свое время
+            <div className={`${s.ownTimeText} ${4 === selectedTime ? s.selectedTime : ''}`} onClick={() => handleClickTime(4)}>
+                {selectedTime !== 4 ? 'свое время' : <TimePicker defaultValue={dayjs('12:08', 'HH:mm')} format={'HH:mm'}/>}
             </div>
         </div>
     );
